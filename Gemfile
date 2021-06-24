@@ -45,6 +45,12 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # Ruby language server
+  gem 'solargraph', '~> 0.42.3'
+
+  # Code smell detector for Ruby
+  gem 'reek', '~> 6.0', '>= 6.0.4'
 end
 
 group :test do
