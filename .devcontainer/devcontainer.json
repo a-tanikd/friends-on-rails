@@ -23,18 +23,23 @@
         "useBundler": true // enable reek via bundler
       }
     },
-    "ruby.format": "rubocop" // use rubocop for formatting
+    "ruby.format": "rubocop", // use rubocop for formatting
+    "solargraph.useBundler": true
   },
 
   // Add the IDs of extensions you want installed when the container is created.
-  "extensions": ["rebornix.Ruby"],
+  "extensions": ["rebornix.Ruby", "castwide.solargraph"],
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [3000],
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "bundle install",
+  // "postCreateCommand": "echo $BUNDLE_APP_CONFIG",
 
   // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-  "remoteUser": "vscode"
+  "remoteUser": "vscode",
+
+  // Set environment variables for remote terminals.
+  // Set BUNDLE_APP_CONFIG to avoid `bundle config` raising an error.
+  "remoteEnv": { "BUNDLE_APP_CONFIG": "${containerWorkspaceFolder}/.bundle" }
 }
