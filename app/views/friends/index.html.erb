@@ -12,11 +12,10 @@
   <tbody>
     <% @friends.each do |friend| %>
       <tr>
-        <td><%= friend.full_name %></td>
+        <td><%= link_to friend.full_name, friend %></td>
         <td><%= friend.email %></td>
         <td><%= friend.phone %></td>
         <td><%= friend.twitter %></td>
-        <td><%= link_to 'Show', friend %></td>
         <td><%= link_to 'Edit', edit_friend_path(friend) %></td>
         <td><%= link_to 'Destroy', friend, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
