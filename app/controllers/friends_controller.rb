@@ -4,7 +4,6 @@
 class FriendsController < ApplicationController
   before_action :set_friend, only: %i[show edit update destroy]
   before_action :authenticate_user!
-  before_action :validate_user_auth, only: %i[show edit update destroy]
 
   # GET /friends or /friends.json
   def index
@@ -71,6 +70,7 @@ class FriendsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_friend
+    validate_user_auth
     @friend = Friend.find(params[:id])
   end
 
